@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Pesquise séries e consulte informações, elenco, temporadas e episódios."
+    >
+    <title>Series API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <!-- Tela inicial -->
+        <section class="Formulario" aria-labelledby="titulo-inicial">
+            <div class="formulario-conteudo">
+                <p class="etiqueta">CATÁLOGO DE SÉRIES</p>
+
+                <h1 id="titulo-inicial">
+                    Encontre sua próxima série favorita
+                </h1>
+
+                <p class="descricao-inicial">
+                    Pesquise uma série e selecione um resultado para
+                    consultar informações, elenco, temporadas e episódios.
+                </p>
+
+                <div class="selecao">
+                    <label for="busca-inicial" class="visualmente-oculto">
+                        Nome da série
+                    </label>
+
+                    <input
+                        type="text"
+                        id="busca-inicial"
+                        placeholder="Pesquise uma série..."
+                        class="txtBuscar"
+                    >
+
+                    <label for="select-inicial" class="visualmente-oculto">
+                        Resultados da pesquisa
+                    </label>
+
+                    <select
+                        id="select-inicial"
+                        class="selectBuscar"
+                    >
+                        <option value="">
+                            Selecione um resultado
+                        </option>
+                    </select>
+                </div>
+
+                <button type="button" class="btnBuscar">
+                    Buscar série
+                </button>
+            </div>
+        </section>
+
+        <!-- Conteúdo principal -->
+        <section class="MainSite" aria-label="Informações da série">
+            <nav class="topoBusca" aria-label="Pesquisar outra série">
+                <label for="busca-principal" class="visualmente-oculto">
+                    Nome da série
+                </label>
+
+                <input
+                    type="text"
+                    id="busca-principal"
+                    placeholder="Pesquise outra série..."
+                    class="txtBuscar"
+                >
+
+                <label for="select-principal" class="visualmente-oculto">
+                    Resultados da pesquisa
+                </label>
+
+                <select
+                    id="select-principal"
+                    class="selectBuscar"
+                >
+                    <option value="">
+                        Selecione um resultado
+                    </option>
+                </select>
+
+                <button type="button" class="btnBuscar">
+                    Buscar
+                </button>
+            </nav>
+
+            <header class="cabecalho-serie">
+                <div class="poster">
+                    <img
+                        src=""
+                        alt="Pôster da série selecionada"
+                    >
+                </div>
+
+                <div class="info">
+                    <h1>Nome da série</h1>
+
+                    <div class="generos">
+                        Gêneros
+                    </div>
+
+                    <h2>Sinopse</h2>
+
+                    <p>
+                        Descrição da série
+                    </p>
+
+                    <div
+                        class="nota"
+                        aria-label="Nota da série"
+                    >
+                        N/A
+                    </div>
+                </div>
+            </header>
+
+            <section class="elenco" aria-labelledby="titulo-elenco">
+                <h2 id="titulo-elenco">
+                    Elenco da série
+                </h2>
+
+                <div class="elenco-container"></div>
+            </section>
+
+            <section class="temporadas" aria-labelledby="titulo-temporadas">
+                <h2 id="titulo-temporadas">
+                    Temporadas
+                </h2>
+
+                <div class="temporadas-container"></div>
+            </section>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
