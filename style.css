@@ -37,6 +37,14 @@ body {
     border: 0;
 }
 
+
+/* Imagens indisponíveis */
+
+.imagem-indisponivel {
+    background-color: #e8e8e8;
+    object-fit: contain;
+}
+
 /* Tela inicial */
 
 .Formulario {
@@ -424,6 +432,46 @@ body {
     overflow-wrap: anywhere;
 }
 
+/* Mensagens e estados da pesquisa */
+
+.mensagem-busca {
+    min-height: 0;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.mensagem-busca:empty {
+    display: none;
+}
+
+.mensagem-busca.erro {
+    color: #dc3545;
+}
+
+.formulario-conteudo .mensagem-busca.erro {
+    color: #ffb3ba;
+}
+
+.mensagem-busca.sucesso {
+    color: #198754;
+}
+
+.mensagem-busca.carregando {
+    color: var(--texto-claro);
+}
+
+.formulario-conteudo .mensagem-busca.carregando {
+    color: #eeeeee;
+}
+
+.btnBuscar:disabled,
+.botao:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+}
+
 /* Ajuste para telas menores */
 
 @media (max-width: 650px) {
@@ -544,5 +592,293 @@ body {
 
     .temporada > .info {
         padding: 20px;
+    }
+
+}
+
+.btnFavorito {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--vermelho);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnFavorito:hover {
+    background-color: var(--vermelho-escuro);
+    transform: translateY(-2px);
+}
+
+.btnFavorito:focus-visible {
+    outline: 3px solid var(--vermelho);
+    outline-offset: 3px;
+}
+
+.mensagem-favorito {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto-claro);
+}
+
+/* Seção de séries favoritas */
+.favoritos {
+    width: 100%;
+    max-width: none;
+    margin: 50px 0 0;
+    padding: 45px clamp(20px, 5vw, 70px);
+    background: #eeeeF1;
+    border-top: 1px solid var(--borda);
+}
+
+.favoritos > h2 {
+    margin-bottom: 8px;
+    color: var(--texto);
+    font-size: 26px;
+}
+
+.descricao-favoritos {
+    margin-bottom: 28px;
+    color: var(--texto-claro);
+    line-height: 1.6;
+}
+
+.favoritos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 210px));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.favorito-card {
+    min-width: 0;
+    padding: 12px;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 5%);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.favorito-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 10%);
+}
+
+.favorito-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.favorito-card h3 {
+    margin: 4px 0;
+    font-size: 16px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.favorito-card .botao {
+    margin-top: 2px;
+}
+
+.favorito-card .botao-remover {
+    margin-top: 0;
+}
+
+.favoritos-vazio {
+    padding: 24px;
+    border: 1px dashed #c8c8ce;
+    border-radius: 10px;
+    color: var(--texto-claro);
+    background: rgb(255 255 255 / 65%);
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 500px) {
+    .favoritos {
+        margin-top: 30px;
+        padding: 30px 18px;
+    }
+
+    .favoritos > h2 {
+        font-size: 22px;
+    }
+
+    .favoritos-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+}
+
+
+/* Melhorias gerais de responsividade */
+
+img {
+    max-width: 100%;
+}
+
+.topoBusca .mensagem-busca {
+    flex: 1 1 100%;
+    width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.cabecalho-serie,
+.cabecalho-serie .info,
+.temporada,
+.temporada > .info,
+.episodio,
+.episodio .info {
+    min-width: 0;
+}
+
+.cabecalho-serie .poster img {
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+.elenco-container,
+.favoritos-container {
+    min-width: 0;
+}
+
+.ator,
+.favorito-card {
+    min-width: 0;
+}
+
+.ator .nome,
+.ator .personagem,
+.favorito-card h3 {
+    overflow-wrap: anywhere;
+}
+
+/* Tablets e telas menores */
+
+@media (max-width: 800px) {
+    .cabecalho-serie {
+        gap: 25px;
+    }
+
+    .cabecalho-serie .poster {
+        width: 100%;
+    }
+
+    .cabecalho-serie .info {
+        width: 100%;
+    }
+
+    .temporada > .poster img {
+        width: min(100%, 260px);
+        height: auto;
+        aspect-ratio: 3 / 4;
+        margin: 0 auto;
+        object-fit: cover;
+    }
+
+    .temporada > .poster {
+        display: flex;
+        justify-content: center;
+        background-color: #eeeeee;
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 500px) {
+    .topoBusca {
+        padding: 18px 15px;
+        gap: 10px;
+    }
+
+    .cabecalho-serie {
+        padding: 25px 15px;
+        gap: 20px;
+    }
+
+    .cabecalho-serie .poster img {
+        max-width: 230px;
+    }
+
+    .cabecalho-serie .info {
+        padding: 18px;
+    }
+
+    .cabecalho-serie .info h1 {
+        font-size: 1.8rem;
+        overflow-wrap: anywhere;
+    }
+
+    .cabecalho-serie .info p {
+        text-align: left;
+        overflow-wrap: anywhere;
+    }
+
+    .btnFavorito {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .elenco-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .favoritos-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .favorito-card {
+        padding: 9px;
+    }
+
+    .favorito-card .botao {
+        padding: 9px 6px;
+        font-size: 0.9rem;
+    }
+
+    .episodio .info {
+        padding: 15px;
+    }
+}
+
+/* Celulares muito estreitos */
+
+@media (max-width: 350px) {
+    .elenco-container,
+    .favoritos-container {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .favorito-card {
+        width: 100%;
+        max-width: 240px;
+    }
+}
+
+/* Respeita a preferência por menos animações */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
