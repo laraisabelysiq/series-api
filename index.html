@@ -56,6 +56,11 @@
                 <button type="button" class="btnBuscar">
                     Buscar série
                 </button>
+                <p
+                    class="mensagem-busca"
+                    role="status"
+                    aria-live="polite"
+                ></p>
             </div>
         </section>
 
@@ -89,6 +94,11 @@
                 <button type="button" class="btnBuscar">
                     Buscar
                 </button>
+                <p
+                    class="mensagem-busca"
+                    role="status"
+                    aria-live="polite"
+                ></p>
             </nav>
 
             <header class="cabecalho-serie">
@@ -112,12 +122,13 @@
                         Descrição da série
                     </p>
 
-                    <div
-                        class="nota"
-                        aria-label="Nota da série"
-                    >
-                        N/A
-                    </div>
+                    <div class="nota" aria-label="Nota da série">N/A</div>
+
+                    <button type="button" class="btnFavorito" aria-pressed="false">
+                        ♡ Adicionar aos favoritos
+                    </button>
+
+                    <p class="mensagem-favorito" role="status" aria-live="polite"></p>
                 </div>
             </header>
 
@@ -135,6 +146,28 @@
                 </h2>
 
                 <div class="temporadas-container"></div>
+            </section>
+
+            <section
+                class="favoritos"
+                aria-labelledby="titulo-favoritos"
+            >
+                <h2 id="titulo-favoritos">
+                    Minhas séries favoritas
+                </h2>
+
+                <p class="descricao-favoritos">
+                    Suas séries favoritas ficam salvas neste navegador.
+                </p>
+
+                <div
+                    class="favoritos-container"
+                    aria-live="polite"
+                >
+                    <p class="favoritos-vazio">
+                        Você ainda não adicionou séries aos favoritos.
+                    </p>
+                </div>
             </section>
         </section>
     </main>
